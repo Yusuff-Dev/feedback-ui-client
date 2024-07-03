@@ -1,0 +1,15 @@
+<ul class="rating">
+    @for(rating of ratings; track rating){
+    <li>
+        <input 
+        type="radio" 
+        [id]="'rating-' + rating"
+        name="rating" 
+        [value]="rating" 
+        (change)="onRatingChange(rating)"
+        />
+        <label [htmlFor]="'rating-' + rating">{{ rating }}</label>
+    </li>
+}
+    <!-- <li *ngFor="let rating of ratings">{{rating}}</li> -->
+</ul>

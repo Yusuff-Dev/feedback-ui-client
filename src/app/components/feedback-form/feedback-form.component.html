@@ -1,0 +1,37 @@
+<app-card>
+    <form [formGroup]="feedbackForm" (submit)="submit()">
+        <h2>Your Feedback</h2>
+
+        <ul class="rating">
+            @for(rating of ratings; track rating){
+            <li>
+                <input 
+                formControlName="rating"
+                type="radio" 
+                [id]="'rating-' + rating"
+                name="rating" 
+                [value]="rating" 
+                />
+                <label [htmlFor]="'rating-' + rating">{{ rating }}</label>
+            </li>
+        }
+        </ul>
+
+        <div class="input-group">
+            <input 
+            id="text"
+            formControlName="text" 
+            type="text" 
+            placeholder='Write a review' 
+            required
+            />
+            <button (click)="update({text: feedbackForm.value.text, rating: feedbackForm.value.rating})" 
+            data-id=""
+            id="update" 
+            type="button" 
+            style="display: none;">Update</button>
+
+            <button id="add" type="submit">Send</button>
+        </div>
+    </form>
+</app-card>

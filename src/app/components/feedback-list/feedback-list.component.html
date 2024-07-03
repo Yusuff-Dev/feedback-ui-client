@@ -1,0 +1,16 @@
+<div>
+    @for(feedback of feedbacks; track feedback){
+        <app-card>
+            <div class="num-display">{{feedback.rating}}</div>
+            <div class="text-display">
+                <p>{{feedback.text}}</p>
+            </div>
+            <div class="btns">
+                <button (click)="deleteFeedback(feedback)">Delete</button>
+                <button (click)="editFeedback(feedback)">Edit</button>
+            </div>
+        </app-card>
+    } @empty{
+    <div class="no-feedback">No feedbacks yet!</div>
+    }
+</div>
